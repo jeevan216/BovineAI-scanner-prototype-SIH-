@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BovineAI Scanner Design System - Agricultural Theme */
+
+@layer base {
+  :root {
+    /* Agricultural color palette */
+    --background: 210 20% 98%;
+    --foreground: 220 13% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    /* Primary - Agricultural Blue */
+    --primary: 204 70% 53%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 204 70% 63%;
+
+    /* Secondary - Soft Agricultural */
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 220 13% 18%;
+
+    /* Success - Agricultural Green */
+    --success: 134 61% 41%;
+    --success-foreground: 0 0% 98%;
+    --success-glow: 134 61% 51%;
+
+    --muted: 210 16% 93%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 204 70% 53%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 204 70% 53%;
+
+    /* Upload zone */
+    --upload-border: 204 70% 53%;
+    --upload-bg: 204 70% 97%;
+    --upload-hover: 204 70% 95%;
+
+    /* Measurements */
+    --measurement-bg: 134 41% 97%;
+    --measurement-border: 134 41% 85%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(204 70% 53%), hsl(220 13% 28%));
+    --gradient-success: linear-gradient(135deg, hsl(134 61% 41%), hsl(134 61% 51%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 16% 98%));
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px hsl(220 13% 18% / 0.04);
+    --shadow-medium: 0 4px 20px hsl(220 13% 18% / 0.08);
+    --shadow-strong: 0 8px 30px hsl(220 13% 18% / 0.12);
+    --shadow-glow: 0 0 20px hsl(204 70% 53% / 0.2);
+
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 220 13% 9%;
+    --foreground: 210 20% 98%;
+
+    --card: 220 13% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 13% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 204 70% 53%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 204 70% 63%;
+
+    --secondary: 220 13% 16%;
+    --secondary-foreground: 210 20% 98%;
+
+    --success: 134 61% 41%;
+    --success-foreground: 0 0% 98%;
+    --success-glow: 134 61% 51%;
+
+    --muted: 220 13% 16%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 204 70% 53%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 204 70% 53%;
+
+    --upload-border: 204 70% 53%;
+    --upload-bg: 220 13% 14%;
+    --upload-hover: 220 13% 16%;
+
+    --measurement-bg: 134 31% 12%;
+    --measurement-border: 134 31% 25%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(204 70% 53%), hsl(220 13% 18%));
+    --gradient-success: linear-gradient(135deg, hsl(134 61% 41%), hsl(134 61% 51%));
+    --gradient-card: linear-gradient(145deg, hsl(220 13% 12%), hsl(220 13% 14%));
+
+    --shadow-soft: 0 2px 8px hsl(0 0% 0% / 0.2);
+    --shadow-medium: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --shadow-strong: 0 8px 30px hsl(0 0% 0% / 0.4);
+    --shadow-glow: 0 0 20px hsl(204 70% 53% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Animation keyframes */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+    }
+    50% {
+      box-shadow: 0 0 30px hsl(var(--primary) / 0.4);
+    }
+  }
+
+  @keyframes scanLine {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(400%);
+    }
+  }
+
+  @keyframes countUp {
+    from {
+      transform: scale(0.8);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+}
+
+@layer components {
+  /* Upload zone animations */
+  .upload-zone {
+    @apply border-2 border-dashed border-[hsl(var(--upload-border))] 
+           bg-[hsl(var(--upload-bg))] rounded-xl p-8 text-center cursor-pointer
+           transition-all duration-300 hover:bg-[hsl(var(--upload-hover))]
+           hover:border-[hsl(var(--primary-glow))] hover:shadow-[var(--shadow-glow)];
+  }
+
+  .upload-zone.dragover {
+    @apply bg-[hsl(var(--upload-hover))] border-[hsl(var(--primary-glow))] 
+           transform scale-105 shadow-[var(--shadow-glow)];
+  }
+
+  /* Scanning animation */
+  .scanning::after {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r 
+           from-transparent via-[hsl(var(--primary))] to-transparent;
+    animation: scanLine 2s linear infinite;
+  }
+
+  /* Measurement cards */
+  .measurement-card {
+    @apply bg-[hsl(var(--measurement-bg))] border border-[hsl(var(--measurement-border))]
+           rounded-lg p-4 transition-all duration-300 hover:scale-105
+           hover:shadow-[var(--shadow-medium)];
+  }
+
+  /* Score display */
+  .score-display {
+    @apply text-6xl font-bold text-[hsl(var(--success))] 
+           animate-[countUp_0.8s_ease-out];
+  }
+
+  /* Gradient buttons */
+  .btn-primary {
+    @apply bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--primary-glow))]
+           text-[hsl(var(--primary-foreground))] px-6 py-3 rounded-lg font-semibold
+           transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-glow)]
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+
+  .btn-success {
+    @apply bg-gradient-to-r from-[hsl(var(--success))] to-[hsl(var(--success-glow))]
+           text-[hsl(var(--success-foreground))] px-6 py-3 rounded-lg font-semibold
+           transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  /* Page animations */
+  .fade-in {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+}
